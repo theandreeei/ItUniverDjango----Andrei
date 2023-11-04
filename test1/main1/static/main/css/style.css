@@ -1,0 +1,41 @@
+ul{
+    display: flex;
+    justify-content: space-around;
+    background-color: #7752FE;
+    list-style: none;
+}
+
+body, ul, li{
+    margin: 0;
+    padding: 0;
+}
+
+li{
+    padding: 15px 0;
+    font-size: 20px;
+    font-weight: 300;
+    width: 33.3%;
+    text-align: center;
+    cursor: pointer;
+}
+j
+li:hover{
+    background-color: #5339B2;
+}
+
+
+.active{
+    font-weight: 600;
+}
+
+a{
+    right: 0;
+    color: red;
+}
+
+span{
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0;
+    color: black;
+}
