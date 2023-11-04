@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .db import students, favorite_films, active
+from .db import students, favorite_films, active, completed_list
 
 
 def index(request):
-    return render(request, 'main/index.html', {'db': active})
+    return render(request, 'main/index.html', {'db': active, 'title': 'Active'})
 
 
 def remove1(request, number):
@@ -15,10 +15,20 @@ def remove1(request, number):
 def remove(request, number):
     for i in active:
         if i['id'] == number:
+            completed_list.append(i)
             active.remove(i)
+            break
     return redirect('/')
-    # active.remove(active[number])
-    # return render(request, 'main/index.html', {'db': active})
+
+
+def completed(request):
+    return render(request, 'main/index.html', {'db': completed_list, 'title': 'Completed'})
+
+
+def info(request, number):
+    for i in active + completed_list:
+        if i['id'] == number:
+            return render(request, 'main/single.html', {'task': i})
 
 
 def index_1(request):

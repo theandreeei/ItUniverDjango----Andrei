@@ -37,3 +37,5 @@ active = [
         'Date': '03.11.2023'
     },
 ]
+
+completed_list = []

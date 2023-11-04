@@ -7,25 +7,27 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>First page</title>
+    <title>{{title}}</title>
 </head>
 <body>
     <ul>
-        <li>Active</li>
+        <a href="{% url 'home' %}">
+            <li>Active</li>
+        </a>
         <li>Add</li>
-        <li>Completed</li>
+        <a href="{% url 'completed' %}">
+            <li>Completed</li>
+        </a>
     </ul>
-
+    <div class="pagetitle">{{title}}</div>
     {% for task in db %}
         <div>
-            <span>{{task.Title}}  </span>
-            <a href="remove/{{task.id}}">✖</a>
+             <a href="info/task_{{task.id}}"><span>{{task.Title}}  </span></a>
+            <a href="remove/{{task.id}}" class="close">✖</a>
         </div>
-
         <p>Description: {{task.Description}}</p>
         <div class="time">
             <p>Date: {{task.Date}}</p>
-
         </div>
     <hr>
     {% endfor %}
