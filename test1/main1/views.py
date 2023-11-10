@@ -28,10 +28,10 @@ def completed(request):
 def info(request, number):
     for i in active:
         if i['id'] == number:
-            return render(request, 'main/single.html', {'task': i, 'address': 'home'})
+            return render(request, 'main/single.html', {'task': i})
     for i in completed_list:
         if i['id'] == number:
-            return render(request, 'main/single.html', {'task': i, 'address': 'completed'})
+            return render(request, 'main/single.html', {'task': i})
 
 
 def index_1(request):
