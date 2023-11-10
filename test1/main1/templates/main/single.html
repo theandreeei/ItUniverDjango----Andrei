@@ -10,6 +10,11 @@
     <title>About {{task.Title}}</title>
 </head>
 <body>
-    Info: {{task}}
+    <div class="titlepage">Information about {{task.Title}}</div>
+    <p>ID: {{task.id}}</p>
+    <p>Title: {{task.Title}}</p>
+    <p>Description: {{task.Description}}</p>
+    <p>Date: {{task.Date}}</p>
+    <div class="gohome"><a href="{% url 'home' %}">Go home</a></div>
 </body>
 </html>
