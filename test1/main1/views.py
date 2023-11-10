@@ -26,10 +26,7 @@ def completed(request):
 
 
 def info(request, number):
-    for i in active:
-        if i['id'] == number:
-            return render(request, 'main/single.html', {'task': i})
-    for i in completed_list:
+    for i in active + completed_list:
         if i['id'] == number:
             return render(request, 'main/single.html', {'task': i})
 
