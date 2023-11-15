@@ -1,0 +1,43 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/add.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add</title>
+</head>
+<body>
+    <ul>
+            <a href="{% url 'home' %}">
+                <li >Active</li>
+            </a>
+            <a href="{% url 'add' %}">
+                <li >Add</li>
+            </a>
+            <a href="{% url 'completed' %}">
+                <li>Completed</li>
+            </a>
+    </ul>
+    <form method="post">
+        {% csrf_token %}
+        <div class="pagetitle">Add</div>
+        <span>
+            <p>Title: </p>
+            <input name="title" type="text">
+        </span>
+         <span>
+            <p>Description: </p>
+            <input name="description" type="text">
+        </span>
+        <div class="buttonadd">
+            <button type="submit">
+                Add
+            </button>
+        </div>
+    </form>
+</body>
+</html>

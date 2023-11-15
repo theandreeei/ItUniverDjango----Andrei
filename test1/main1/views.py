@@ -1,10 +1,26 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .db import students, favorite_films, active, completed_list
+from random import randint
+from datetime import date
 
 
 def index(request):
     return render(request, 'main/index.html', {'db': active, 'title': 'Active'})
+
+
+def add(request):
+    if request.method == 'GET':
+        return render(request, 'main/add.html')
+    description = request.POST.get('description')
+    title = request.POST.get('title')
+    active.append({
+        "id": randint(0, 10000),
+        "Title": title,
+        "Description": description,
+        "Date": date.today().strftime('%d.%m.%Y')
+    })
+    return redirect('/')
 
 
 def remove1(request, number):

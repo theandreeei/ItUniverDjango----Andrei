@@ -1,0 +1,13 @@
+.titlepage{
+    text-align: center;
+    font-size: 24px;
+}
+
+p{
+    margin: 0;
+    padding: 0;
+}
+
+.buttonadd{
+    text-align: center;
+}

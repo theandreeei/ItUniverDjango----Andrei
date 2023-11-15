@@ -15,5 +15,6 @@ urlpatterns = [
     path('films', views.films),
     path('remove/<int:number>', views.remove),
     path('completed', views.completed, name='completed'),
-    path('info/task_<int:number>', views.info)
+    path('info/task_<int:number>', views.info),
+    path('add', views.add, name='add')
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
