@@ -6,6 +6,7 @@ from datetime import date
 
 
 def index(request):
+    save_to_file()
     return render(request, 'main/index.html', {'db': active, 'title': 'Active'})
 
 
@@ -15,10 +16,10 @@ def add(request):
     description = request.POST.get('description')
     title = request.POST.get('title')
     active.append({
-        "id": randint(0, 10000),
-        "Title": title,
-        "Description": description,
-        "Date": date.today().strftime('%d.%m.%Y')
+        'id': randint(0, 10000),
+        'Title': title,
+        'Description': description,
+        'Date': date.today().strftime('%d.%m.%Y')
     })
     return redirect('/')
 
@@ -35,6 +36,12 @@ def remove(request, number):
             active.remove(i)
             break
     return redirect('/')
+
+
+def save_to_file():
+    with open('data.txt', 'w', encoding='utf-8') as file:
+        for task in active:
+            file.write(f"{task['id']}\t{task['Title']}\t{task['Description']}\t{task['Date']}\n")
 
 
 def completed(request):

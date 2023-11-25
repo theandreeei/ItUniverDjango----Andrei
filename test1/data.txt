@@ -1,0 +1,2 @@
+0	Do homework	Do homework to IT-Univer of Django	03.11.2023
+1	Go for a walk	Go for a walk after lessons	03.11.2023
